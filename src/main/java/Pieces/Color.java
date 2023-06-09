@@ -1,2 +1,5 @@
-package Pieces;public class Color {
+package Pieces;
+
+public enum Color {
+    BLACK, WHITE
 }

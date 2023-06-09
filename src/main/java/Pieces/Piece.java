@@ -1,14 +1,14 @@
 package Pieces;
 
-import Game.Player;
-
 public abstract class Piece {
-    private final Player player;
+    private final Color color;
+    private boolean captured;
     public int x, y;
-    public Piece(int x, int y, Player player) {
+    public Piece(int x, int y, Color color) {
         this.x = x;
         this.y = y;
-        this.player = player;
+        this.color = color;
+        this.captured = false; // All pieces start NOT captured.
     }
 
     public abstract boolean isValidPath(int finalX, int finalY);

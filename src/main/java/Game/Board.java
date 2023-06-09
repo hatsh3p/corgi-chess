@@ -1,22 +1,30 @@
 package Game;
 
+import Pieces.Color;
+import Pieces.Pawn;
+import Pieces.Piece;
+import Pieces.Rook;
+
 public class Board {
-    char[][] board;
+    Piece[][] board;
+    int size = 8;
+
 
     public Board() {
-        this.board = intialize();
+        this.board = intialize(size);
     }
 
-    private char[][] intialize() {
-        char[][] board = new char[8][8];
-        board[0] = new char[]{'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'};
-        board[1] = new char[]{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'};
-        board[2] = new char[]{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-        board[3] = new char[]{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-        board[4] = new char[]{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-        board[5] = new char[]{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-        board[6] = new char[]{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'};
-        board[7] = new char[]{'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'};
+    private Piece[][] intialize(int size) {
+
+//        Piece[][] board = new Piece[size][size];
+//        board[0][0] = new Rook(0, 0, Color.WHITE);
+//        board[0][1] = new Pawn(0, 1, Color.WHITE);
+//        board[0][2] = new Pawn(0, 2, Color.WHITE);
+//        board[0][3] = new Pawn(0, 1, Color.WHITE);
+//        board[0][4] = new Pawn(0, 0, Color.WHITE);
+//        board[0][5] = new Pawn(0, 1, Color.WHITE);
+//        board[0][6] = new Pawn(0, 0, Color.WHITE);
+//        board[0][7] = new Pawn(0, 1, Color.WHITE);
 
         return board;
     }
@@ -32,5 +40,10 @@ public class Board {
             builderStr.append('\n');
         }
         return builderStr.toString();
+    }
+
+    public static void main(String[] args) {
+        Board board = new Board();
+        System.out.println(board);
     }
 }

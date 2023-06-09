@@ -6,8 +6,8 @@ import Game.Player;
 public class Pawn extends Piece {
     Type type;
 
-    public Pawn(int x, int y, Player player) {
-        super(x, y, player); // Calls the constructor of the generic piece.
+    public Pawn(int x, int y, Color color) {
+        super(x, y, color); // Calls the constructor of the generic piece.
         type = Type.PAWN;
     }
 
@@ -48,4 +48,7 @@ public class Pawn extends Piece {
     public Type getType() {
         return Type.PAWN;
     }
+
+    @Override
+    public String toString() {return "P"; }
 }
