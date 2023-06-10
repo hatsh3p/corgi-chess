@@ -21,4 +21,9 @@ public class Rook extends Piece {
     public Type getType() {
         return Type.ROOK;
     }
+
+    @Override
+    public String toString() {
+        return "R";
+    }
 }

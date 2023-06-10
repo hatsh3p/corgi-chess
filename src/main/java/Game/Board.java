@@ -1,40 +1,46 @@
 package Game;
 
-import Pieces.Color;
-import Pieces.Pawn;
-import Pieces.Piece;
-import Pieces.Rook;
+import Pieces.*;
 
 public class Board {
     Piece[][] board;
+    Player white;
+    Player black;
+
     int size = 8;
 
 
     public Board() {
-        this.board = intialize(size);
+        this.board = new Piece[size][size];
+        createPlayers();
+        placePieces(size);
     }
 
-    private Piece[][] intialize(int size) {
+    private void createPlayers() {
+        this.white = new Player(Color.WHITE);
+        this.black = new Player(Color.BLACK);
+    }
 
-//        Piece[][] board = new Piece[size][size];
-//        board[0][0] = new Rook(0, 0, Color.WHITE);
-//        board[0][1] = new Pawn(0, 1, Color.WHITE);
-//        board[0][2] = new Pawn(0, 2, Color.WHITE);
-//        board[0][3] = new Pawn(0, 1, Color.WHITE);
-//        board[0][4] = new Pawn(0, 0, Color.WHITE);
-//        board[0][5] = new Pawn(0, 1, Color.WHITE);
-//        board[0][6] = new Pawn(0, 0, Color.WHITE);
-//        board[0][7] = new Pawn(0, 1, Color.WHITE);
 
-        return board;
+    private void placePieces(int size) {
+        for (Piece piece : white.pieces) {
+            board[piece.x][piece.y] = piece;
+        }
+        for (Piece piece : black.pieces) {
+            board[piece.x][piece.y] = piece;
+        }
     }
 
     public String toString() {
         StringBuilder builderStr = new StringBuilder();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 builderStr.append(' ');
-                builderStr.append(board[i][j]);
+                if (board[i][j] != null) {
+                    builderStr.append(this.board[i][j].toString());
+                } else {
+                    builderStr.append(' ');
+                }
                 builderStr.append(' ');
             }
             builderStr.append('\n');
